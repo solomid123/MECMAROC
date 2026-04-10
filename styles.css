@@ -1112,6 +1112,11 @@ textarea {
 }
 
 @media (max-width: 820px) {
+  .site-header {
+    position: relative;
+    background: #fff;
+  }
+  
   .site-nav {
     position: absolute;
     top: calc(100% + 0.6rem);
