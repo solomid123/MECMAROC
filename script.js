@@ -175,49 +175,67 @@ function mailtoUrl(subject, body, to) {
 function wireContactForm() {
   const form = document.querySelector("[data-mail-form]");
   const status = document.querySelector("[data-form-status]");
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
   if (!form) {
     return;
   }
 
-  form.addEventListener("submit", (event) => {
+  const EDGE_URL = "https://koowuhkrnqbtpnkqkbpw.supabase.co/functions/v1/send-contact";
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const data = new FormData(form);
-    const name = (data.get("name") || "").toString().trim();
-    const email = (data.get("email") || "").toString().trim();
-    const company = (data.get("company") || "").toString().trim();
-    const phone = (data.get("phone") || "").toString().trim();
-    const industry = (data.get("industry") || "").toString().trim();
-    const project = (data.get("project") || "").toString().trim();
-    const message = (data.get("message") || "").toString().trim();
+    const payload = {
+      name: (data.get("name") || "").toString().trim(),
+      email: (data.get("email") || "").toString().trim(),
+      company: (data.get("company") || "").toString().trim(),
+      phone: (data.get("phone") || "").toString().trim(),
+      industry: (data.get("industry") || "").toString().trim(),
+      project: (data.get("project") || "").toString().trim(),
+      message: (data.get("message") || "").toString().trim(),
+    };
 
-    const subjectBase = company || name || "Nouveau contact France";
-    const body = [
-      "Bonjour,",
-      "",
-      "Je souhaite échanger au sujet d'un projet.",
-      "",
-      `Nom : ${name}`,
-      `Email : ${email}`,
-      `Entreprise : ${company || "Non renseignée"}`,
-      `Telephone : ${phone || "Non renseigné"}`,
-      `Secteur : ${industry || "Non renseigné"}`,
-      `Type de projet : ${project || "Non renseigné"}`,
-      "",
-      "Description :",
-      message,
-    ].join("\n");
-
+    // Disable button and show loading
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours…";
+    }
     if (status) {
-      status.textContent = "Votre messagerie s'ouvre avec un brief prérempli.";
+      status.textContent = "";
+      status.style.color = "";
     }
 
-    window.location.href = mailtoUrl(
-      `Demande de devis ExoMaintenance - ${subjectBase}`,
-      body,
-      "projets@exomaintenance.fr"
-    );
+    try {
+      const res = await fetch(EDGE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        if (status) {
+          status.textContent = "✓ Message envoyé avec succès ! Nous vous répondrons rapidement.";
+          status.style.color = "#0f766e";
+        }
+        form.reset();
+      } else {
+        throw new Error(result.error || "Erreur inconnue");
+      }
+    } catch (err) {
+      if (status) {
+        status.textContent = "✗ " + (err.message || "Échec de l'envoi. Veuillez réessayer.");
+        status.style.color = "#dc2626";
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Envoyer le message";
+      }
+    }
   });
 }
 
