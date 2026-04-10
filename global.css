@@ -1,0 +1,253 @@
+/* =========================================================
+   TRILLION DOLLAR GLOBAL THEME
+   ========================================================= */
+
+body {
+  background: #050a10 !important;
+  color: #fff !important;
+  min-height: 100vh;
+}
+
+body .site-header {
+  background: rgba(5, 10, 16, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff;
+}
+
+body .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body .nav-link:hover,
+body .nav-link.active {
+  color: #fff !important;
+}
+
+body .logo-text, body .logo-sub {
+  color: #fff !important;
+}
+
+body .nav-toggle {
+  color: #fff !important;
+}
+
+/* 1. The Immersive 100vh Hero */
+body .bg-video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+
+body .bg-video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5,10,16,0.3) 0%, #050a10 90%),
+              linear-gradient(to top, #050a10 0%, transparent 40%);
+  z-index: 1;
+}
+
+body .bg-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: contrast(1.2) brightness(0.8);
+}
+
+body .hero.shell {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+body .hero-copy {
+  max-width: 900px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body .hero-copy h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff !important;
+  line-height: 1.05;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+body .hero-copy .lead {
+  font-size: 1.25rem !important;
+  color: rgba(255,255,255,0.85) !important;
+  margin-top: 1.5rem !important;
+}
+
+body .hero-actions {
+  justify-content: center;
+  margin-top: 2rem !important;
+}
+
+body .btn-secondary {
+  background: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+}
+
+body .btn-secondary:hover {
+  background: rgba(255,255,255,0.2) !important;
+}
+
+body .hero-notes {
+  display: none !important; 
+}
+
+body .hero-panel {
+  background: rgba(16, 32, 58, 0.4) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 30px !important;
+  color: #fff !important;
+  margin-top: 5rem !important;
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.5) !important;
+  width: 100%;
+}
+
+body .hero-panel h2 {
+  color: #fff !important;
+}
+
+body .hero-panel .panel-grid article,
+body .scoreboard {
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+body .hero-panel strong {
+  color: #fff !important;
+}
+
+body .hero-panel span {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* 2. Overriding cards to use Trillion Dollar Glass */
+body .metric-card,
+body .info-card,
+body .stacked-panel,
+body .process-step,
+body .cta-band,
+body .service-card,
+body .industry-card,
+body .story-card,
+body .value-card,
+body .form-card,
+body .contact-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  border-radius: 20px !important;
+}
+
+body .client-band {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 0 !important;
+}
+
+body .info-card p,
+body .stacked-panel p,
+body .client-band p,
+body .process-step p,
+body .section-head p,
+body .metric-card span,
+body .service-card p,
+body .industry-card p,
+body .story-card p,
+body .value-card p,
+body .form-card p,
+body p,
+body li {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+body .btn-trillion,
+body .btn-trillion span {
+  color: #fff !important;
+}
+
+body .section-head h2,
+body .client-band-head h2,
+body .stacked-panel h2,
+body .cta-band h2,
+body .page-hero h1,
+body .service-card h2,
+body .industry-card h2,
+body .story-card h2,
+body .value-card h3,
+body .form-card h2,
+body h1,
+body h2,
+body h3,
+body h4,
+body .eyebrow {
+  color: #fff !important;
+}
+
+body .eyebrow,
+body .btn-trillion:hover span {
+  color: var(--accent) !important;
+}
+
+body .metric-card strong,
+body .process-step .step-number {
+  background: none !important;
+  -webkit-text-fill-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* 3. Client Logos */
+body .client-logo {
+  filter: brightness(0) invert(1) opacity(0.5) !important;
+}
+
+body .client-logo:hover {
+  filter: brightness(0) invert(1) opacity(1) !important;
+}
+
+/* 4. Global Inputs */
+body input,
+body textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+body input::placeholder,
+body textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+body .bullet-list li::before {
+  background: var(--accent) !important;
+}

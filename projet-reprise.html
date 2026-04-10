@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reprise d'un ensemble mécanique critique | ExoMaintenance</title>
+    <meta name="description" content="Étude de cas : Fiabilisation et redesign CAO d'un ensemble mécanique industriel complexe sujet à des pannes thermiques et vibratoires." />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="page-detail">
+    <div data-site-header></div>
+
+    <main class="page-main">
+      <section class="detail-hero" data-reveal>
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Équipement industriel" />
+        <div class="detail-hero-content">
+          <p class="eyebrow">Cas Client</p>
+          <h1>Reprise d'un ensemble mécanique critique</h1>
+        </div>
+      </section>
+
+      <section class="shell detail-layout">
+        <div class="detail-content" data-reveal>
+          <h2>Le contexte de la panne récurrente</h2>
+          <p>
+            Notre client, un industriel majeur dans la plasturgie, faisait face à des arrêts intempestifs sur le mécanisme de verrouillage du moule d'une presse (effort de fermeture : 1500 Tonnes). Ces arrêts inattendus cassaient non seulement la rentabilité globale (TRS), mais devenaient également dangèreux pour la sécurité de l'arbre opérateur.
+          </p>
+          <p>
+            L'analyse des historiques (GMAO) montrait une défaillance de la came de verrouillage tous les 3 mois en moyenne (au lieu des 5 ans prévus par le constructeur initialement). L'action purement *corrective* n'avait plus de sens. Il fallait un vrai Redesign.
+          </p>
+
+          <h2>Notre action : Du Calcul FEA à la Fiabilisation</h2>
+          <ul class="bullet-list">
+            <li><strong>Audit & Diagnostic :</strong> Observation in-situ et analyse par caméra haute vitesse pour déceler un micro-choc parasite lors de l'attaque de came.</li>
+            <li><strong>Calcul AEF :</strong> Modélisation de l'ancienne pièce sur SolidWorks et lancement des simulations d'efforts révélant une contrainte dépassant la limite élastique de l'acier employé dans 1% des cycles.</li>
+            <li><strong>Redesign Mécanique :</strong> Changement d'alliage (Acier 42CrMo4) et modification du profil d'attaque de la came incluant une rainure de lubrification pour éviter l'échauffement asymétrique.</li>
+            <li><strong>Livrable fabrication :</strong> Nouveaux plans de détail envoyés à l'usineur avec instructions de traitement thermique.</li>
+          </ul>
+
+          <h2>Résultats du projet</h2>
+          <p>
+            Depuis la réinstallation complète de ce nouveau sous-ensemble et la mise à jour des gammes préventives demandant le contrôle de la fameuse gorge de graissage, la came n'a subi strictement aucune usure prématurée en 24 mois.
+          </p>
+        </div>
+        
+        <aside class="detail-sidebar" data-reveal>
+          <div class="detail-sidebar-block">
+            <h3>KPIs du projet</h3>
+            <div class="editorial-data-grid" style="margin-top:0; border:none; padding:0;">
+              <div style="margin-bottom: 1rem;">
+                <strong style="color:var(--primary); font-size:2.5rem; background:none;-webkit-text-fill-color:initial;">+45%</strong>
+                <span style="font-weight:600; color:var(--ink);">Robustesse mécanique</span>
+              </div>
+              <div>
+                <strong style="color:var(--primary); font-size:2.5rem; background:none;-webkit-text-fill-color:initial;">-20%</strong>
+                <span style="font-weight:600; color:var(--ink);">Temps intervention</span>
+              </div>
+            </div>
+          </div>
+          <div class="detail-sidebar-block">
+            <h3>Logiciels mobilisés</h3>
+            <div class="tool-cloud">
+              <span class="tool-pill">SolidWorks</span>
+              <span class="tool-pill">Abaqus</span>
+              <span class="tool-pill">Carl GMAO</span>
+            </div>
+          </div>
+          <div class="detail-sidebar-block">
+            <a href="contact.html" class="btn-trillion" style="width:100%; text-align:center;">Un problème similaire ?</a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | ExoMaintenance</title>
+    <meta name="description" content="Le Guide Ultime de la Maintenance Préventive par Analyse Vibratoire." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <style>
+      /* Page Hero Banner - Airbus Style Full Bleed */
+      .blog-hero-banner {
+        position: relative;
+        width: 100%;
+        height: 65vh;
+        min-height: 480px;
+        background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80') center/cover no-repeat;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 4rem;
+        margin-top: 76px;
+        margin-bottom: -5rem;
+      }
+      .blog-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(17,17,17,0.2) 0%, rgba(17,17,17,0.95) 100%);
+      }
+      .blog-hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        width: 100%;
+        padding: 0 clamp(1rem, 5vw, 3rem);
+      }
+      .blog-hero-content .eyebrow {
+        color: #fff;
+        background: rgba(255,255,255,0.15);
+        padding: 0.4rem 1rem;
+        border-radius: 999px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: inline-block;
+        margin-bottom: 1.2rem;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .blog-hero-content h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        max-width: 1100px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+      }
+      
+      /* Glassmorphism Article Container */
+      .blog-container {
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: 0 auto 5rem;
+        padding: clamp(2rem, 5vw, 4rem);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+
+      /* Drop Cap */
+      .drop-cap::first-letter {
+        font-family: var(--font-display);
+        font-size: 5rem;
+        font-weight: 800;
+        float: left;
+        line-height: 0.85;
+        padding-right: 0.6rem;
+        padding-top: 0.4rem;
+        color: red;
+      }
+
+      /* Typography */
+      .blog-container h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 3vw, 2.2rem);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-top: 3.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.8rem;
+        color: var(--ink);
+      }
+      .blog-container h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 40px; height: 3px;
+        background: red;
+      }
+      .blog-container h3 {
+        font-family: var(--font-display);
+        font-size: clamp(1.3rem, 2vw, 1.5rem);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--ink);
+      }
+      .blog-container p {
+        margin-bottom: 1.5rem;
+        color: var(--ink-soft);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      .blog-container ul, .blog-container ol {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+        color: var(--ink-soft);
+      }
+      .blog-container li {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      
+      /* Airbus Style Pull Quotes */
+      .blog-quote {
+        margin: 3.5rem -3rem;
+        padding: 3rem 4rem;
+        background: var(--surface-alt);
+        border-left: 6px solid red;
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+      @media (max-width: 800px) {
+        .blog-quote { margin: 3rem 0; padding: 1.5rem; }
+      }
+      .blog-quote p {
+        font-family: var(--font-display);
+        font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+        line-height: 1.4;
+        color: var(--ink);
+        font-style: italic;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+      }
+      .blog-quote::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-family: var(--font-display);
+        font-size: 8rem;
+        color: var(--line-strong);
+        opacity: 0.2;
+        line-height: 1;
+        z-index: 1;
+      }
+
+      /* Interstitial Figures / Images */
+      .blog-figure {
+        margin: 3.5rem -2rem;
+      }
+      @media (max-width: 800px) {
+        .blog-figure { margin: 3rem 0; }
+      }
+      .blog-figure img {
+        width: 100%;
+        border-radius: var(--radius-md);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        display: block;
+      }
+      .blog-caption {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        margin-top: 1rem;
+        text-align: center;
+        font-style: italic;
+      }
+
+      /* Related Read More Section */
+      .related-section {
+        max-width: 1200px;
+        margin: 0 auto 6rem;
+        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+      }
+      .related-section h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 1.5rem;
+      }
+      .related-card {
+        background: var(--surface);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        transition: transform var(--transition), box-shadow var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+      .related-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .related-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .related-content {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .related-content p.eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: red;
+        margin-bottom: 0.5rem;
+      }
+      .related-content h3 {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .related-content .read-more {
+        margin-top: auto;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .related-content .read-more::after {
+        content: "→";
+      }
+      .blog-container hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 4rem 0;
+      }
+    </style>
+  </head>
+  <body class="page-blog">
+    <div data-site-header></div>
+
+    <div class="blog-hero-banner">
+      <div class="blog-hero-overlay"></div>
+      <div class="shell blog-hero-content" data-reveal>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="eyebrow">Innovation</span>
+          <span class="eyebrow">Maintenance Prédictive</span>
+        </div>
+        <h1>Le Guide Ultime de la Maintenance Préventive par Analyse Vibratoire</h1>
+      </div>
+    </div>
+
+    <main class="page-main">
+      <article class="blog-container" data-reveal>
+        <p class="drop-cap">Dans le monde aux enjeux colossaux de la fabrication industrielle et de la machinerie lourde, la défaillance d'un équipement est plus qu'une simple nuisance—c'est un événement catastrophique. Les temps d'arrêt non planifiés peuvent coûter aux installations des dizaines de milliers d'euros par heure en perte de production, en perturbations de la chaîne d'approvisionnement et en frais de réparation d'urgence. Pendant des décennies, les industries ont fonctionné sur un modèle réactif de « marche jusqu'à la panne », attendant que les machines cassent avant de les réparer. Cela a évolué vers la maintenance préventive basée sur le temps, où les composants étaient remplacés selon un calendrier strict, quel que soit leur état réel.</p>
+        
+        <p>C'est ici qu'intervient la <strong>Maintenance Conditionnelle (CBM)</strong> et, plus spécifiquement, <strong>l'Analyse Vibratoire</strong>. L'analyse vibratoire est la pierre angulaire de la maintenance prédictive moderne (PdM). Elle repose sur un principe simple mais profond : chaque machine tournante génère une signature vibratoire unique.</p>
+
+        <blockquote class="blog-quote">
+          <p>En surveillant continuellement les micro-vibrations, les équipes de maintenance peuvent regarder à l'intérieur d'une machine sans la démonter, identifiant des défauts microscopiques des mois avant qu'ils n'entraînent une panne catastrophique.</p>
+        </blockquote>
+
+        <p>Dans ce guide technique complet, nous allons explorer les profondeurs absolues de l'analyse vibratoire. Nous aborderons la physique des vibrations, les types exacts de capteurs utilisés, la méthodologie pour diagnostiquer des défauts mécaniques spécifiques, et la façon dont l'intelligence artificielle remodèle l'avenir de la surveillance.</p>
+
+        <h2>Partie 1 : La Physique et les Principes Fondamentaux des Vibrations</h2>
+        <p>Pour maîtriser véritablement l'analyse vibratoire, il faut d'abord comprendre la physique fondamentale des vibrations appliquée aux machines tournantes. La vibration est définie comme le mouvement oscillatoire d'un corps autour d'une position de référence.</p>
+
+        <figure class="blog-figure">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80" alt="FFT Spectrum UI">
+          <figcaption class="blog-caption">Figure 1 : La Transformée de Fourier Rapide (FFT) décomposant des formes d'ondes complexes en fréquences individuelles.</figcaption>
+        </figure>
+
+        <h3>Les Trois Paramètres : Déplacement, Vitesse et Accélération</h3>
+        <ul>
+          <li><strong>Déplacement :</strong> Recherche des mouvements larges et visibles. Idéal pour détecter le balourd dans les rotors massifs à rotation lente (en dessous de 600 CPM).</li>
+          <li><strong>Vitesse :</strong> Considérée comme le meilleur indicateur de la santé globale de la machine car elle est proportionnelle à l'énergie de fatigue réelle. Excellente pour les défauts de moyenne fréquence comme le désalignement et le desserrage.</li>
+          <li><strong>Accélération :</strong> Très sensible aux forces d'impact aiguës qui se produisent à des fréquences extrêmement élevées. La référence absolue pour détecter les défauts de roulements à un stade précoce.</li>
+        </ul>
+
+        <h2>Partie 2 : Matériel et Diagnostic des Défauts</h2>
+        
+        <blockquote class="blog-quote">
+          <p>Un analyseur de spectre à 10 000 euros ne sert à rien si le capteur est mal monté. Pour capturer les données haute fréquence des roulements, le capteur doit avoir un chemin rigide et inflexible.</p>
+        </blockquote>
+
+        <p>Lorsqu'un analyste examine un spectre FFT haute résolution, il devient un détective industriel. Les défauts des machines ne se cachent pas ; ils s'annoncent à des fréquences mathématiques très spécifiques.</p>
+
+        <h3>Les « Quatre Grands » de l'Industrie</h3>
+        <ol>
+          <li><strong>Le Balourd :</strong> Se manifeste par un pic massif et imposant dans le spectre FFT exactement à 1X la vitesse de rotation.</li>
+          <li><strong>Le Désalignement :</strong> Crée de fortes vibrations à 1X, 2X, et parfois 3X la vitesse de rotation, avec d'intenses vibrations axiales.</li>
+          <li><strong>Le Desserrage :</strong> Génère un motif en « palissade » d'harmoniques.</li>
+          <li><strong>Défauts de Roulements :</strong> Produisent des multiplicateurs mathématiques totalement non synchrones (comme 4.12X ou 5.23X) basés sur la géométrie spécifique du roulement.</li>
+        </ol>
+
+        <figure class="blog-figure">
+          <img src="https://images.unsplash.com/photo-1580983554203-0941ca91c496?auto=format&fit=crop&q=80" alt="Wireless IoT Sensor in Factory">
+          <figcaption class="blog-caption">Figure 2 : Accéléromètres MEMS sans fil installés de façon permanente sur des groupes électrogènes et pompes industriels.</figcaption>
+        </figure>
+
+        <h2>Partie 3 : La Révolution de l'IoT et de l'IA</h2>
+        <p>Historiquement, l'analyse vibratoire était une démarche manuelle nécessitant de se déplacer de machine en machine. Aujourd'hui, les avancées de la technologie MEMS ont permis aux entreprises de coller à l'époxy de minuscules capteurs sans fil alimentés par batterie de manière permanente sur les moteurs.</p>
+        
+        <p>Avec 10 000 capteurs sans fil envoyant des données quatre fois par jour, les analystes humains se retrouvent sous 40 000 graphiques quotidiens. Les plateformes modernes résolvent ce problème grâce à des algorithmes de machine learning supervisés formés sur des millions de spectres historiques. Lorsque l'IA détecte une anomalie, elle émet une <strong>Alerte Prescriptive</strong> : <em>"Niveau de confiance 92 % : Défaut de bague extérieure (Stade 3). Temps avant défaillance estimé : 14 jours."</em></p>
+
+        <p>La maintenance préventive par analyse vibratoire n'est plus un luxe. En maîtrisant les vibrations, nous cessons d'être des pompiers luttant constamment contre les pannes, et devenons de véritables architectes de la disponibilité des équipements.</p>
+      </article>
+
+      <section class="related-section" data-reveal>
+        <h2>Découvrez d'autres articles</h2>
+        <div class="related-grid">
+          
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80" alt="Engineers">
+            <div class="related-content">
+              <p class="eyebrow">Étude de Cas</p>
+              <h3>Comment l'analyse des huiles double la durée de vie des réducteurs.</h3>
+              <span class="read-more">Lire l'article</span>
+            </div>
+          </a>
+
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" alt="Factory Floor">
+            <div class="related-content">
+              <p class="eyebrow">Technologie</p>
+              <h3>Déployer l'IoT industriel dans les environnements difficiles.</h3>
+              <span class="read-more">Lire l'article</span>
+            </div>
+          </a>
+
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80" alt="Dashboard">
+            <div class="related-content">
+              <p class="eyebrow">Management</p>
+              <h3>Le ROI prouvé de la maintenance conditionnelle en moins de 12 mois.</h3>
+              <span class="read-more">Lire l'article</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

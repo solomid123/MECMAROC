@@ -1,0 +1,203 @@
+/* =========================================================
+   TRILLION DOLLAR HOMEPAGE OVERRIDES
+   ========================================================= */
+
+.page-home {
+  background: #050a10;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.page-home .site-header {
+  background: rgba(5, 10, 16, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff;
+}
+
+.page-home .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.page-home .nav-link:hover {
+  color: #fff !important;
+}
+
+.page-home .logo-text, .page-home .logo-sub {
+  color: #fff !important;
+}
+
+/* 1. The Immersive 100vh Hero */
+.page-home .bg-video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.page-home .bg-video-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5,10,16,0.3) 0%, #050a10 90%),
+              linear-gradient(to top, #050a10 0%, transparent 40%);
+  z-index: 1;
+}
+
+.page-home .bg-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: contrast(1.2) brightness(0.8);
+}
+
+.page-home .hero.shell {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.page-home .hero-copy {
+  max-width: 900px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-home .hero-copy h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff !important;
+  line-height: 1.05;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.page-home .hero-copy .lead {
+  font-size: 1.25rem !important;
+  color: rgba(255,255,255,0.85) !important;
+  margin-top: 1.5rem !important;
+}
+
+.page-home .hero-actions {
+  justify-content: center;
+  margin-top: 2rem !important;
+}
+
+.page-home .btn-secondary {
+  background: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+}
+
+.page-home .btn-secondary:hover {
+  background: rgba(255,255,255,0.2) !important;
+}
+
+.page-home .hero-notes {
+  display: none !important; 
+}
+
+.page-home .hero-panel {
+  background: rgba(16, 32, 58, 0.4) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 30px !important;
+  color: #fff !important;
+  margin-top: 5rem !important;
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.5) !important;
+  width: 100%;
+}
+
+.page-home .hero-panel h2 {
+  color: #fff !important;
+}
+
+.page-home .hero-panel .panel-grid article,
+.page-home .scoreboard {
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+.page-home .hero-panel strong {
+  color: #fff !important;
+}
+
+.page-home .hero-panel span {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* 2. Overriding cards to use Trillion Dollar Glass */
+.page-home .metric-card,
+.page-home .info-card,
+.page-home .stacked-panel,
+.page-home .process-step,
+.page-home .cta-band {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  border-radius: 20px !important;
+}
+
+.page-home .client-band {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 0 !important;
+}
+
+.page-home .info-card p,
+.page-home .stacked-panel p,
+.page-home .client-band p,
+.page-home .process-step p,
+.page-home .section-head p {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.page-home .section-head h2,
+.page-home .client-band-head h2,
+.page-home .stacked-panel h2,
+.page-home .cta-band h2,
+.page-home h3,
+.page-home .eyebrow {
+  color: #fff !important;
+}
+
+.page-home .eyebrow {
+  color: var(--accent) !important;
+}
+
+.page-home .metric-card strong,
+.page-home .process-step .step-number {
+  background: none !important;
+  -webkit-text-fill-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+/* 3. Client Logos */
+.page-home .client-logo {
+  filter: brightness(0) invert(1) opacity(0.5) !important;
+}
+
+.page-home .client-logo:hover {
+  filter: brightness(0) invert(1) opacity(1) !important;
+}

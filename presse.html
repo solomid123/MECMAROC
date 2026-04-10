@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presse | ExoMaintenance</title>
+    <meta name="description" content="Espace médias et derniers communiqués de presse d'ExoMaintenance — communiqués, mentions média et ressources presse." />
+    <!-- Fonts and CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <style>
+      .blog-index-hero {
+        text-align: center;
+        padding: 8rem 1rem 4rem;
+      }
+      .blog-index-hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        letter-spacing: -0.04em;
+        margin-bottom: 1.5rem;
+      }
+      .blog-index-hero p {
+        font-size: 1.2rem;
+        color: var(--ink-soft);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* ── Section Heading ── */
+      .press-section-title {
+        max-width: 1200px;
+        margin: 0 auto 2rem;
+        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        position: relative;
+        padding-bottom: 0.8rem;
+      }
+      .press-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: clamp(1.25rem, 5vw, 2.5rem);
+        width: 40px;
+        height: 3px;
+        background: red;
+      }
+
+      /* ── Cards Grid ── */
+      .related-section {
+        max-width: 1200px;
+        margin: 0 auto 4rem;
+        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .related-card {
+        background: var(--surface);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        transition: transform var(--transition), box-shadow var(--transition);
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .related-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      }
+      .related-img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+      .related-content {
+        padding: 2.5rem 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .related-content .press-date {
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        font-weight: 500;
+        margin-bottom: 0.6rem;
+        letter-spacing: 0.02em;
+      }
+      .related-content p.eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: red;
+        margin-bottom: 0.8rem;
+      }
+      .related-content h3 {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .related-content p.excerpt {
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .related-content .read-more {
+        margin-top: auto;
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--ink);
+      }
+      .related-content .read-more::after {
+        content: "→";
+        transition: transform 0.2s ease;
+      }
+      .related-card:hover .read-more::after {
+        transform: translateX(5px);
+      }
+
+      /* ── Featured press card (full-width top) ── */
+      .press-featured {
+        max-width: 1200px;
+        margin: 0 auto 4rem;
+        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+      }
+      .press-featured-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--surface);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: transform var(--transition), box-shadow var(--transition);
+      }
+      .press-featured-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      }
+      .press-featured-card img {
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+        object-fit: cover;
+      }
+      .press-featured-body {
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .press-featured-body p.eyebrow {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: red;
+        margin-bottom: 0.5rem;
+      }
+      .press-featured-body .press-date {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+      .press-featured-body h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 3vw, 2rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.2rem;
+        color: var(--ink);
+      }
+      .press-featured-body p.excerpt {
+        color: var(--ink-soft);
+        font-size: 1.1rem;
+        line-height: 1.65;
+        margin-bottom: 2rem;
+      }
+      .press-featured-body .read-more {
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--ink);
+      }
+      .press-featured-body .read-more::after {
+        content: "→";
+        transition: transform 0.2s ease;
+      }
+      .press-featured-card:hover .read-more::after {
+        transform: translateX(5px);
+      }
+      @media (max-width: 768px) {
+        .press-featured-card {
+          grid-template-columns: 1fr;
+        }
+        .press-featured-card img {
+          min-height: 220px;
+        }
+      }
+
+      /* ── Contact presse bar ── */
+      .press-contact {
+        max-width: 1200px;
+        margin: 0 auto 6rem;
+        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+      }
+      .press-contact-inner {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .press-contact-text h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--ink);
+      }
+      .press-contact-text p {
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+      .press-contact-inner .btn {
+        background: red;
+        color: #fff;
+        padding: 1rem 2.5rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .press-contact-inner .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(220,38,38,0.3);
+      }
+      @media (max-width: 640px) {
+        .press-contact-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="page-presse">
+    <div data-site-header></div>
+    
+    <main class="page-main">
+      <section class="blog-index-hero" data-reveal>
+        <p class="eyebrow" style="color: red; font-weight:800; text-transform:uppercase; margin-bottom: 1rem;">Médias & Actualités</p>
+        <h1>Espace Presse</h1>
+        <p>Retrouvez nos derniers communiqués, mentions dans les médias et ressources téléchargeables pour les journalistés et partenaires.</p>
+      </section>
+
+      <!-- ═══ Featured Press Release ═══ -->
+      <div class="press-featured" data-reveal>
+        <a href="presse-plateforme-predictive.html" class="press-featured-card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="ExoMaintenance Platform Launch">
+          <div class="press-featured-body">
+            <p class="eyebrow">Communiqué de Presse</p>
+            <span class="press-date">8 avril 2026</span>
+            <h2>ExoMaintenance lance sa plateforme de maintenance prédictive de nouvelle génération</h2>
+            <p class="excerpt">Une intégration révolutionnaire combinant IA, IoT industriel et analyse vibratoire avancée pour transformer la gestion des actifs industriels à grande échelle.</p>
+            <span class="read-more">Lire le communiqué</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- ═══ Communiqués ═══ -->
+      <h2 class="press-section-title" data-reveal>Communiqués & Annonces</h2>
+      <section class="related-section" data-reveal>
+        <div class="related-grid">
+
+          <a href="presse-schneider-electric.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" alt="IoT Integration">
+            <div class="related-content">
+              <p class="eyebrow">Communiqué</p>
+              <span class="press-date">22 mars 2026</span>
+              <h3>Partenariat stratégique avec Schneider Electric pour la surveillance des installations critiques</h3>
+              <p class="excerpt">ExoMaintenance et Schneider Electric s'associent pour déployer une solution intégrée de condition monitoring dans les infrastructures énergétiques européennes.</p>
+              <span class="read-more">Lire le communiqué</span>
+            </div>
+          </a>
+
+          <a href="presse-certification-iso.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" alt="Certification ISO">
+            <div class="related-content">
+              <p class="eyebrow">Communiqué</p>
+              <span class="press-date">14 février 2026</span>
+              <h3>ExoMaintenance obtient la certification ISO 18436 pour ses services d'analyse vibratoire</h3>
+              <p class="excerpt">Cette certification internationale reconnaît la compétence de nos équipes en diagnostic vibratoire de niveau expert sur machines tournantes.</p>
+              <span class="read-more">Lire le communiqué</span>
+            </div>
+          </a>
+
+          <a href="presse-bureau-toulouse.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?auto=format&fit=crop&q=80" alt="Expansion">
+            <div class="related-content">
+              <p class="eyebrow">Communiqué</p>
+              <span class="press-date">9 janvier 2026</span>
+              <h3>Ouverture d'un nouveau bureau d'ingénierie à Toulouse pour le secteur aéronautique</h3>
+              <p class="excerpt">ExoMaintenance renforcé sa présence dans le sud-ouest de la France pour accompagner les sous-traitants Airbus et les acteurs de la filière aérospatiale.</p>
+              <span class="read-more">Lire le communiqué</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ═══ Dans les Médias ═══ -->
+      <h2 class="press-section-title" data-reveal>Dans les Médias</h2>
+      <section class="related-section" data-reveal>
+        <div class="related-grid">
+
+          <a href="blog-roi-maintenance-conditionnelle.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80" alt="L'usine Nouvelle">
+            <div class="related-content">
+              <p class="eyebrow">L'Usine Nouvelle</p>
+              <span class="press-date">mars 2026</span>
+              <h3>« La maintenance prédictive, levier de compétitivité pour l'industrie française »</h3>
+              <p class="excerpt">Notre directeur technique expose dans L'Usine Nouvelle comment l'IA transforme les stratégies de maintenance dans les usines françaises.</p>
+              <span class="read-more">Voir l'article</span>
+            </div>
+          </a>
+
+          <a href="blog-iot-environnements-difficiles.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80" alt="Forbes">
+            <div class="related-content">
+              <p class="eyebrow">Forbes France</p>
+              <span class="press-date">février 2026</span>
+              <h3>« L'avenir des usines intelligentes passe par l'analyse conditionnelle »</h3>
+              <p class="excerpt">Forbes France consacre un dossier spécial à la convergence IoT et maintenance prédictive, citant ExoMaintenance comme acteur clé du marché.</p>
+              <span class="read-more">Voir l'article</span>
+            </div>
+          </a>
+
+          <a href="blog-analyse-huiles-double-vie-reducteurs-industriels.html" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80" alt="Industrie & Technologies">
+            <div class="related-content">
+              <p class="eyebrow">Industrie & Technologies</p>
+              <span class="press-date">décembre 2025</span>
+              <h3>« Ces startups françaises qui révolutionnent la gestion d'actifs »</h3>
+              <p class="excerpt">ExoMaintenance figure dans le palmarès des 10 startups industrielles les plus prometteuses selon le magazine Industrie & Technologies.</p>
+              <span class="read-more">Voir l'article</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ═══ Ressources Presse ═══ -->
+      <h2 class="press-section-title" data-reveal>Ressources Média</h2>
+      <section class="related-section" data-reveal>
+        <div class="related-grid">
+
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Dossier de Presse">
+            <div class="related-content">
+              <p class="eyebrow">Téléchargement</p>
+              <h3>Dossier de Presse 2026</h3>
+              <p class="excerpt">Kit complet incluant la présentation d'ExoMaintenance, les biographies des fondateurs, les logos HD et les chiffres clés.</p>
+              <span class="read-more">Télécharger le PDF</span>
+            </div>
+          </a>
+
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" alt="Banque d'images">
+            <div class="related-content">
+              <p class="eyebrow">Téléchargement</p>
+              <h3>Banque d'Images HD</h3>
+              <p class="excerpt">Photos haute résolution de nos équipements, équipes terrain et interventions pour vos publications éditoriales.</p>
+              <span class="read-more">Accéder à la galerie</span>
+            </div>
+          </a>
+
+          <a href="#" class="related-card">
+            <img class="related-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" alt="Chiffres clés">
+            <div class="related-content">
+              <p class="eyebrow">Infographie</p>
+              <h3>ExoMaintenance en Chiffres — 2026</h3>
+              <p class="excerpt">Infographie téléchargeable présentant nos réalisations, la croissance de nos activités et les secteurs industriels couverts.</p>
+              <span class="read-more">Télécharger l'infographie</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ═══ Contact Presse ═══ -->
+      <div class="press-contact" data-reveal>
+        <div class="press-contact-inner">
+          <div class="press-contact-text">
+            <h3>Contact Presse</h3>
+            <p>Pour toute demande d'interview, de commentaire expert ou de partenariat éditorial, contactez notre équipe communication.</p>
+          </div>
+          <a href="contact.html" class="btn">Nous Contacter</a>
+        </div>
+      </div>
+
+    </main>
+    
+    <div data-site-footer></div>
+  </body>
+</html>
