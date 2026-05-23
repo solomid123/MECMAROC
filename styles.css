@@ -1859,6 +1859,220 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
   100% { opacity: 1; }
 }
 
+/* ==========================================================
+   MOBILE HUD ANNOTATIONS — proportional scaling (≤ 780px)
+   ========================================================== */
+@media (max-width: 780px) {
+
+  /* Service Switcher Dock: compact pill, tighter spacing */
+  .service-switcher-dock {
+    top: 72px;
+    padding: 4px;
+    gap: 2px;
+    border-radius: 60px;
+    max-width: 94%;
+  }
+  .switcher-btn {
+    padding: 7px 10px;
+    gap: 6px;
+  }
+  .sw-num {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+  .sw-label {
+    font-size: 9px;
+  }
+  .sw-desc {
+    display: none; /* hide subtitle on mobile to save space */
+  }
+
+  /* Floating annotation cards: already stacked via flex, just shrink them */
+  .fcard {
+    padding: 12px 14px 10px !important;
+    width: 78% !important;
+  }
+  .fcard h3 {
+    font-size: 14px !important;
+  }
+  .fcard p {
+    font-size: 11.5px !important;
+    line-height: 1.5;
+  }
+  .fcard header {
+    margin-bottom: 8px;
+  }
+  .fcard-idx {
+    font-size: 9px;
+  }
+  .fcard-tag {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+  .fcard footer {
+    margin-top: 8px;
+    padding-top: 8px;
+    font-size: 10px;
+  }
+
+  /* FEA Scale Bar: shorter, tucked to corner */
+  .fea-scale-bar {
+    right: 3%;
+    gap: 8px;
+  }
+  .fea-scale-gradient {
+    width: 6px;
+    height: 120px;
+  }
+  .fea-scale-ticks {
+    height: 120px;
+    font-size: 7.5px;
+  }
+
+  /* FEA Hotspots: smaller dots */
+  .fea-hotspot {
+    width: 10px;
+    height: 10px;
+  }
+  .hotspot-pulse {
+    inset: -4px;
+  }
+
+  /* Hotspot Callouts: narrower, smaller text */
+  .hotspot-callout {
+    width: 140px;
+    padding: 7px 9px;
+    top: -65px;
+    border-radius: 6px;
+    gap: 2px;
+  }
+  .hs-title {
+    font-size: 7px;
+  }
+  .hs-value {
+    font-size: 10px;
+  }
+  .hs-meta {
+    font-size: 8px;
+  }
+
+  /* MCO Telemetry Panel: tighter */
+  .mco-telemetry-panel {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .mco-header {
+    gap: 6px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+  .mco-header span {
+    font-size: 9px !important;
+  }
+  .mco-indicator {
+    width: 6px;
+    height: 6px;
+  }
+  .mco-metrics-grid {
+    gap: 6px;
+  }
+  .mco-label {
+    font-size: 7px;
+  }
+  .mco-val {
+    font-size: 11px;
+  }
+  .mco-unit {
+    font-size: 7px;
+  }
+
+  /* MCO Sparkline */
+  .mco-graph-container {
+    height: 32px;
+    margin: 10px 0;
+  }
+
+  /* MCO Health Ring: smaller */
+  .health-ring-container {
+    width: 72px;
+    height: 72px;
+  }
+  .health-percent {
+    font-size: 14px;
+  }
+  .health-label {
+    font-size: 6.5px;
+  }
+
+  /* MCO Fault Sim Button */
+  .btn-fault-sim {
+    padding: 8px;
+    font-size: 9px;
+    gap: 5px;
+  }
+
+  /* Fault Alert Banner */
+  .mco-fault-alert {
+    top: 140px;
+    padding: 8px 14px;
+    gap: 2px;
+  }
+  .alert-flash {
+    font-size: 9px;
+  }
+  .alert-details {
+    font-size: 8px;
+  }
+
+  /* Hero Copy: smaller intro text */
+  .hero-copy .eyebrow {
+    font-size: 9px !important;
+  }
+  .hero-copy .lede {
+    font-size: 13.5px !important;
+  }
+}
+
+/* Extra small phones (≤ 420px) — even tighter */
+@media (max-width: 420px) {
+  .service-switcher-dock {
+    top: 64px;
+    padding: 3px;
+  }
+  .switcher-btn {
+    padding: 5px 7px;
+    gap: 4px;
+  }
+  .sw-num {
+    font-size: 7px;
+  }
+  .sw-label {
+    font-size: 8px;
+  }
+  .fcard {
+    padding: 10px 12px 8px !important;
+    width: 86% !important;
+  }
+  .fcard h3 {
+    font-size: 13px !important;
+  }
+  .fcard p {
+    font-size: 11px !important;
+  }
+  .hotspot-callout {
+    width: 120px;
+    padding: 5px 7px;
+    top: -55px;
+  }
+  .health-ring-container {
+    width: 60px;
+    height: 60px;
+  }
+  .health-percent {
+    font-size: 12px;
+  }
+}
+
 
 /* ==========================================================
    LIGHT MODE OVERRIDES FOR NEW COMPONENTS
