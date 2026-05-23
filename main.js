@@ -84,7 +84,7 @@
       eyebrow: "CALCUL MULTI-PHYSIQUE — DIAGNOSTIC FEA",
       title: "La validation par<br/><em>simulation numérique</em> structurelle et thermique.",
       lede: "Faites défiler pour analyser les concentrations de contraintes, les modes propres de vibration et les gradients thermiques sous charge opérationnelle.",
-      filter: "hue-rotate(240deg) saturate(1.8) contrast(1.1) brightness(1.15)",
+      filter: "rainbow",
       scrim: 0.2,
       story: {
         eyebrow: "— Résolution structurelle",
@@ -395,7 +395,13 @@
     if (!data) return;
 
     // Apply canvas GPU CSS filter
-    canvas.style.filter = data.filter;
+    if (data.filter === 'rainbow') {
+      canvas.style.filter = 'none';
+      canvas.classList.add('canvas-fea-rainbow');
+    } else {
+      canvas.classList.remove('canvas-fea-rainbow');
+      canvas.style.filter = data.filter;
+    }
 
     // Update intro copy
     if (copy) {
