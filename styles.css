@@ -575,14 +575,8 @@ body.no-scroll{overflow:hidden}
     padding:10% 0 14%;
   }
   .fcard{
-    position:static !important;
-    width:86% !important; max-width:none !important;
-    left:auto !important; right:auto !important;
-    top:auto !important; bottom:auto !important;
-    padding:18px 18px 16px;
+    display: none !important;
   }
-  .fcard h3{font-size:17px}
-  .fcard p{font-size:13px}
 
   /* ACT 4 CTA: smaller h2, tighter buttons. */
   .hero-cta-panel{width:86%}
@@ -1897,34 +1891,6 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
     display: none; /* hide subtitle on mobile to save space */
   }
 
-  /* Floating annotation cards: already stacked via flex, made significantly more compact */
-  .fcard {
-    padding: 8px 12px 6px !important;
-    width: 70% !important;
-  }
-  .fcard h3 {
-    font-size: 12.5px !important;
-    margin-bottom: 4px !important;
-  }
-  .fcard p {
-    font-size: 10px !important;
-    line-height: 1.4 !important;
-  }
-  .fcard header {
-    margin-bottom: 4px !important;
-  }
-  .fcard-idx {
-    font-size: 8.5px !important;
-  }
-  .fcard-tag {
-    font-size: 7.5px !important;
-    padding: 2px 5px !important;
-  }
-  .fcard footer {
-    margin-top: 6px !important;
-    padding-top: 6px !important;
-    font-size: 9px !important;
-  }
 
   /* FEA Scale Bar: shorter, tucked to corner */
   .fea-scale-bar {
@@ -2060,16 +2026,7 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
   .sw-label {
     font-size: 8px;
   }
-  .fcard {
-    padding: 6px 10px 4px !important;
-    width: 80% !important;
-  }
-  .fcard h3 {
-    font-size: 11px !important;
-  }
-  .fcard p {
-    font-size: 9.5px !important;
-  }
+
   .hotspot-callout {
     width: 120px;
     padding: 5px 7px;
