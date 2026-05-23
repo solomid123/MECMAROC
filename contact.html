@@ -104,27 +104,18 @@
     setStatus('', '');
 
     try {
-      const res = await fetch('https://corsproxy.io/?url=' + encodeURIComponent('https://api.resend.com/emails'), {
+      const res = await fetch('/api/send-contact', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer re_crcqcZca_84mn9e8Fy9bFteFcnujRkZrr',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          from: 'MecMaroc Contact <info@mecmaroc.com>',
-          to: 'info@mecmaroc.com',
-          subject: `Contact MecMaroc - ${data.subject || 'Nouveau Message'}`,
-          html: `
-            <h2>Nouveau message de contact</h2>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <p><strong>Nom :</strong> ${data.name}</p>
-            <p><strong>Société :</strong> ${data.company || 'Non renseigné'}</p>
-            <p><strong>E-mail :</strong> ${data.email}</p>
-            <p><strong>Téléphone :</strong> ${data.phone || 'Non renseigné'}</p>
-            <p><strong>Sujet :</strong> ${data.subject}</p>
-            <p><strong>Message :</strong></p>
-            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-wrap;">${data.message}</div>
-          `
+          name: data.name,
+          company: data.company,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
         })
       });
 
