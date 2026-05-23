@@ -691,7 +691,10 @@ body.no-scroll{overflow:hidden}
   max-width:var(--maxw);margin:0 auto;padding:60px 8% 100px;
   display:grid;grid-template-columns:1fr 2fr;gap:80px;
 }
-@media(max-width:900px){.page-body{grid-template-columns:1fr;gap:40px}}
+@media(max-width:900px){
+  .page-body{grid-template-columns:1fr;gap:40px}
+  .page-body aside{position:static !important;}
+}
 .page-body aside{position:sticky;top:120px;align-self:start}
 .page-body aside .mono{display:block;margin-bottom:14px}
 .page-body aside h4{font-size:15px;color:#fff;margin-bottom:8px;font-weight:500}
