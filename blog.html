@@ -1,177 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | ExoMaintenance</title>
-    <meta name="description" content="Découvrez nos derniers articles et études de cas." />
-    <!-- Fonts and CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-    <style>
-      .blog-index-hero {
-        text-align: center;
-        padding: 8rem 1rem 4rem;
-      }
-      .blog-index-hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        letter-spacing: -0.04em;
-        margin-bottom: 1.5rem;
-      }
-      .blog-index-hero p {
-        font-size: 1.2rem;
-        color: var(--ink-soft);
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-      
-      .related-section {
-        max-width: 1200px;
-        margin: 0 auto 6rem;
-        padding: 0 clamp(1.25rem, 5vw, 2.5rem);
-      }
-      .related-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-      }
-      .related-card {
-        background: var(--surface);
-        border-radius: var(--radius-xl);
-        overflow: hidden;
-        border: 1px solid var(--line);
-        transition: transform var(--transition), box-shadow var(--transition);
-        display: flex;
-        flex-direction: column;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-      }
-      .related-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-      }
-      .related-img {
-        width: 100%;
-        height: 240px;
-        object-fit: cover;
-      }
-      .related-content {
-        padding: 2.5rem 2rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .related-content p.eyebrow {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        font-weight: 800;
-        color: red;
-        margin-bottom: 0.8rem;
-      }
-      .related-content h3 {
-        font-family: var(--font-display);
-        font-size: 1.4rem;
-        line-height: 1.25;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-      }
-      .related-content p.excerpt {
-        color: var(--ink-soft);
-        font-size: 1.05rem;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .related-content .read-more {
-        margin-top: auto;
-        font-weight: 700;
-        font-size: 0.95rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        color: var(--ink);
-      }
-      .related-content .read-more::after {
-        content: "→";
-        transition: transform 0.2s ease;
-      }
-      .related-card:hover .read-more::after {
-        transform: translateX(5px);
-      }
-    </style>
-  </head>
-  <body class="page-blog-hub">
-    <div data-site-header></div>
-    
-    <main class="page-main">
-      <section class="blog-index-hero" data-reveal>
-        <p class="eyebrow" style="color: red; font-weight:800; text-transform:uppercase; margin-bottom: 1rem;">Insights & Actualités</p>
-        <h1>Notre Blog Technique</h1>
-        <p>Retrouvez nos analyses approfondies, études de cas et guides complets sur la maintenance industrielle et l'ingénierie mécanique.</p>
-      </section>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blog — MecMaroc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css?v=9" />
+<script src="/includes.js?v=2" defer></script>
+</head>
+<body data-route="blog">
 
-      <section class="related-section" data-reveal>
-        <div class="related-grid">
+<div id="site-header"></div>
 
-          <!-- Auto-generated card for blog-analyse-huiles-double-vie-reducteurs-industriels.html -->
-          <a href="blog-analyse-huiles-double-vie-reducteurs-industriels.html" class="related-card">
-            <img class="related-img" src="assets/blog/analyse-huiles-double-vie-reducteurs-industriels-hero.jpg" alt="Comment l'Analyse des Huiles Double la Durée de Vie des Réducteurs Industriels">
-            <div class="related-content">
-              <p class="eyebrow">Maintenance Prédictive</p>
-              <h3>Comment l'Analyse des Huiles Double la Durée de Vie des Réducteurs Industriels</h3>
-              <p class="excerpt">Découvrez comment l'analyse des huiles permet de doubler la durée de vie de vos réducteurs industriels grâce à la maintenance prédictive avancée.</p>
-              <span class="read-more">Lire l'article</span>
-            </div>
-          </a>
-          
-          <!-- Article 1: The Vibration Guide -->
-          <a href="blog-vibration.html" class="related-card">
-            <img class="related-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" alt="Vibration Analysis">
-            <div class="related-content">
-              <p class="eyebrow">Guide Complet</p>
-              <h3>Le Guide Ultime de la Maintenance Préventive par Analyse Vibratoire</h3>
-              <p class="excerpt">Découvrez comment l'analyse vibratoire permet de prédire les pannes mécaniques des mois à l'avance et d'optimiser radicalement la fiabilité de vos équipements.</p>
-              <span class="read-more">Lire l'article</span>
-            </div>
-          </a>
+<section class="page-hero">
+  <nav class="crumbs"><a href="/index.html">Accueil</a><span class="sep">/</span><span>Blog</span></nav>
+  <h1>Notes <em>d'ingénierie</em>.</h1>
+  <p class="lede">Retours d'expérience, méthodes et points de vue — écrits par les ingénieurs qui font le travail.</p>
+</section>
 
+<section class="tile-grid" aria-label="Articles">
+  <a class="tile" href="/blog/amdec-mieux-tableur.html">
+    <span class="tile-num">05.04.2026</span>
+    <div class="tile-tags"><span>AMDEC</span><span>RCM</span><span>Maintenance</span></div>
+    <h3>Pourquoi l'AMDEC mérite mieux qu'un tableur</h3>
+    <p>Comment transformer un exercice documentaire en outil de pilotage quotidien de la disponibilité.</p>
+    <span class="tile-arrow">Lire l'article &rarr;</span>
+  </a>
+  <a class="tile" href="/blog/fea-non-lineaire-pieges.html">
+    <span class="tile-num">22.03.2026</span>
+    <div class="tile-tags"><span>FEA</span><span>Non-linéaire</span><span>Contact</span></div>
+    <h3>FEA non‑linéaire : le piège des conditions aux limites</h3>
+    <p>Trois erreurs classiques qui invalident silencieusement vos simulations de crash.</p>
+    <span class="tile-arrow">Lire l'article &rarr;</span>
+  </a>
+  <a class="tile" href="/blog/maintenance-predictive-donnees.html">
+    <span class="tile-num">08.03.2026</span>
+    <div class="tile-tags"><span>Prédictif</span><span>ML</span><span>Signal</span></div>
+    <h3>Maintenance prédictive : ce que la donnée ne vous dira pas</h3>
+    <p>Le contexte mécanique reste indispensable — sans lui, les signaux faibles deviennent du bruit.</p>
+    <span class="tile-arrow">Lire l'article &rarr;</span>
+  </a>
+  <a class="tile" href="/blog/topologie-fabricabilite.html">
+    <span class="tile-num">15.02.2026</span>
+    <div class="tile-tags"><span>Topologie</span><span>DfAM</span><span>CAO</span></div>
+    <h3>Topologie et fabricabilité : le dernier kilomètre</h3>
+    <p>Pourquoi 80 % des topologies optimisées ne passent jamais en production.</p>
+    <span class="tile-arrow">Lire l'article &rarr;</span>
+  </a>
+  <a class="tile" href="/blog/tribologie-roue-rail.html">
+    <span class="tile-num">28.01.2026</span>
+    <div class="tile-tags"><span>Tribologie</span><span>Ferroviaire</span><span>Contact</span></div>
+    <h3>Tribologie roue-rail : le contact qui fait rouler le monde</h3>
+    <p>Ce que Hertz et Carter n'ont pas dit : le contact roue-rail est un problème de quatre corps, pas de deux.</p>
+    <span class="tile-arrow">Lire l'article &rarr;</span>
+  </a>
+</section>
 
-          <!-- Article 3: IoT Industriel -->
-          <a href="blog-iot-environnements-difficiles.html" class="related-card">
-            <img class="related-img" src="assets/blog/iot-atex.jpg" alt="IoT ATEX">
-            <div class="related-content">
-              <p class="eyebrow">Technologie</p>
-              <h3>Déployer l'IoT Industriel dans les Environnements Difficiles</h3>
-              <p class="excerpt">Les défis et les solutions pour implémenter des capteurs sans fil intelligents dans les zones ATEX, à température extrême ou à très haute humidité.</p>
-              <span class="read-more">Lire l'article</span>
-            </div>
-          </a>
-
-          <!-- Article 4: ROI Maintenance Conditionnelle -->
-          <a href="blog-roi-maintenance-conditionnelle.html" class="related-card">
-            <img class="related-img" src="assets/blog/roi-hero.jpg" alt="ROI Maintenance">
-            <div class="related-content">
-              <p class="eyebrow">Management</p>
-              <h3>Le ROI Prouvé de la Maintenance Conditionnelle en Moins de 12 Mois</h3>
-              <p class="excerpt">Calculs financiers, modèles de coûts et retours d'expérience concrets démontrant la rentabilité très rapide des programmes prédictifs.</p>
-              <span class="read-more">Lire l'article</span>
-            </div>
-          </a>
-
-        </div>
-      </section>
-    </main>
-    
-    <div data-site-footer></div>
-  </body>
+<div id="site-footer"></div>
+<script src="/main.js?v=2" defer></script>
+</body>
 </html>

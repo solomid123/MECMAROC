@@ -1,277 +1,273 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ExoMaintenance | Bureau d'étude mécanique et maintenance industrielle</title>
-    <meta
-      name="description"
-      content="ExoMaintenance : bureau d'étude mécanique, maintenance préventive, prédictive, corrective, curative et services de fiabilisation pour les industriels."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body class="page-home">
-    <div data-site-header></div>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>MecMaroc — Ingénierie Mécanique &amp; Maintenance</title>
+<meta name="description" content="MecMaroc — conception mécanique, calcul FEA, maintenance préventive et prédictive pour les industries exigeantes." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css?v=22" />
+<script src="/includes.js?v=2" defer></script>
+</head>
+<body data-route="home">
 
-    <main class="page-main">
-      <div class="bg-video-wrapper">
-        <video src="0825-copy.mp4" autoplay loop muted playsinline></video>
+<!-- ============ NAV (injected from /partials/header.html) ============ -->
+<div id="site-header"></div>
+
+<!-- ============ HERO: SCROLL SEQUENCE ============ -->
+<section id="top" class="hero">
+  <div class="hero-track">
+    <div class="hero-sticky">
+      <canvas id="sequence" aria-hidden="true"></canvas>
+
+      <!-- Futuristic Service Switcher -->
+      <div class="service-switcher-dock glass glass-solid" role="tablist" aria-label="Sélecteur d'ingénierie">
+        <button id="btn-switch-cad" class="switcher-btn active" role="tab" aria-selected="true" data-service="cad">
+          <span class="sw-num">01</span><span class="sw-label">CAO <span class="sw-desc">Conception</span></span>
+        </button>
+        <button id="btn-switch-fea" class="switcher-btn" role="tab" aria-selected="false" data-service="fea">
+          <span class="sw-num">02</span><span class="sw-label">FEA <span class="sw-desc">Simulation</span></span>
+        </button>
+        <button id="btn-switch-mco" class="switcher-btn" role="tab" aria-selected="false" data-service="mco">
+          <span class="sw-num">03</span><span class="sw-label">MCO <span class="sw-desc">Jumeau IoT</span></span>
+        </button>
       </div>
 
-      <section class="hero shell">
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">ExoMaintenance · Bureau d'étude mécanique</p>
-          <h1>Études mécaniques et maintenance industrielle pour vos sites et équipements</h1>
-          <p class="lead">
-            ExoMaintenance accompagne les industriels avec une offre complète
-            alliant conception mécanique, calcul, industrialisation,
-            maintenance préventive, prédictive, corrective et curative.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn-trillion" href="contact.html">Demander un devis</a>
-            <a class="btn btn-secondary" href="services.html">Voir nos services</a>
-          </div>
-
-          <ul class="hero-notes">
-            <li>Appui bureau d'étude pour conception, rétroconception et mise en plan</li>
-            <li>Maintenance industrielle structurée sur tout le cycle de vie des équipements</li>
-            <li>Interventions et plans d'action adaptés aux contraintes de production</li>
-          </ul>
-        </div>
-
-        <div class="hero-panel" data-reveal>
-          <span class="panel-pill">Études & Maintenance</span>
-          <h2>Un partenaire technique unique pour concevoir, fiabiliser et maintenir.</h2>
-
-          <div class="panel-grid">
-            <article>
-              <strong>Études mécaniques</strong>
-              <span>CAO, plans, calcul et optimisation</span>
-            </article>
-            <article>
-              <strong>Maintenance préventive</strong>
-              <span>Plans, gammes, rondes et maintenance planifiee</span>
-            </article>
-            <article>
-              <strong>Maintenance prédictive</strong>
-              <span>Suivi d'état, diagnostic et anticipation des pannes</span>
-            </article>
-            <article>
-              <strong>Maintenance corrective</strong>
-              <span>Dépannage, remise en état et actions curatives</span>
-            </article>
-          </div>
-
-          <div class="scoreboard">
-            <div class="score">
-              <span>Approche</span>
-              <strong>terrain & bureau</strong>
+      <!-- Interactive HUD Overlays -->
+      <div class="hero-hud-overlays" aria-hidden="true">
+        <!-- FEA Layer: Stress Scale and hotspots -->
+        <div class="hud-fea-layer">
+          <div class="fea-scale-bar">
+            <div class="fea-scale-gradient"></div>
+            <div class="fea-scale-ticks">
+              <span>450 MPa (Max)</span>
+              <span>337 MPa</span>
+              <span>225 MPa</span>
+              <span>112 MPa</span>
+              <span>0 MPa (Min)</span>
             </div>
-            <div class="score">
-              <span>Objectif</span>
-              <strong>disponibilité machine</strong>
+          </div>
+          <!-- Stress Hotspots -->
+          <div class="fea-hotspot" style="top: 38%; left: 45%;">
+            <div class="hotspot-pulse"></div>
+            <div class="hotspot-callout glass">
+              <span class="hs-title">Concentration de contraintes</span>
+              <span class="hs-value">Von Mises: 342 MPa</span>
+              <span class="hs-meta">Coeff. Sécurité: 1.31</span>
             </div>
-            <div class="score">
-              <span>Resultat</span>
-              <strong>fiabilisation durable</strong>
+          </div>
+          <div class="fea-hotspot" style="top: 55%; left: 62%;">
+            <div class="hotspot-pulse"></div>
+            <div class="hotspot-callout glass">
+              <span class="hs-title">Point d'articulation</span>
+              <span class="hs-value">Von Mises: 218 MPa</span>
+              <span class="hs-meta">Coeff. Sécurité: 2.06</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="shell client-band" data-reveal>
-        <div class="client-band-head">
-          <p class="eyebrow">Dignes de confiance</p>
-          <h2>Des leaders de l'industrie s'appuient sur ExoMaintenance</h2>
-          <p>
-            Nous accompagnons au quotidien des industriels exigeants dans la 
-            conception, la fiabilisation et le maintien en conditions opérationnelles de leurs équipements essentiels.
-          </p>
-        </div>
-
-        <div class="client-marquee" aria-label="Entreprises accompagnees">
-          <div class="client-track">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Renault_2021_Text.svg" alt="Renault" class="client-logo">
-            <svg class="client-logo" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg" aria-label="TEXELIS"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="26" fill="currentColor" letter-spacing="-0.02em">TEXELIS</text></svg>
-            <svg class="client-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg" aria-label="Nemera"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="600" font-size="28" fill="currentColor" letter-spacing="-0.02em">nemera</text></svg>
-            <svg class="client-logo" viewBox="0 0 145 32" xmlns="http://www.w3.org/2000/svg" aria-label="SOVIRESO"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="25" fill="currentColor" letter-spacing="0.06em">SOVIRESO</text></svg>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" class="client-logo">
-            <svg class="client-logo" viewBox="0 0 210 32" xmlns="http://www.w3.org/2000/svg" aria-label="TE Connectivity"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="800" font-size="22" fill="currentColor">TE Connectivity</text></svg>
-            <svg class="client-logo" viewBox="0 0 90 32" xmlns="http://www.w3.org/2000/svg" aria-label="SEWS"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="800" font-size="28" fill="currentColor" letter-spacing="-0.03em">SEWS</text></svg>
-            <svg class="client-logo" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg" aria-label="YAZAKI"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="700" font-size="25" fill="currentColor">YAZAKI</text></svg>
-            <svg class="client-logo" viewBox="0 0 60 32" xmlns="http://www.w3.org/2000/svg" aria-label="SLB"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="30" fill="currentColor" letter-spacing="-0.05em">SLB</text></svg>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Renault_2021_Text.svg" alt="Renault" class="client-logo">
-            <svg class="client-logo" viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg" aria-label="TEXELIS"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="26" fill="currentColor" letter-spacing="-0.02em">TEXELIS</text></svg>
-            <svg class="client-logo" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg" aria-label="Nemera"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="600" font-size="28" fill="currentColor" letter-spacing="-0.02em">nemera</text></svg>
-            <svg class="client-logo" viewBox="0 0 145 32" xmlns="http://www.w3.org/2000/svg" aria-label="SOVIRESO"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="25" fill="currentColor" letter-spacing="0.06em">SOVIRESO</text></svg>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" class="client-logo">
-            <svg class="client-logo" viewBox="0 0 210 32" xmlns="http://www.w3.org/2000/svg" aria-label="TE Connectivity"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="800" font-size="22" fill="currentColor">TE Connectivity</text></svg>
-            <svg class="client-logo" viewBox="0 0 90 32" xmlns="http://www.w3.org/2000/svg" aria-label="SEWS"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="800" font-size="28" fill="currentColor" letter-spacing="-0.03em">SEWS</text></svg>
-            <svg class="client-logo" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg" aria-label="YAZAKI"><text x="0" y="24" font-family="'Manrope', sans-serif" font-weight="700" font-size="25" fill="currentColor">YAZAKI</text></svg>
-            <svg class="client-logo" viewBox="0 0 60 32" xmlns="http://www.w3.org/2000/svg" aria-label="SLB"><text x="0" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="30" fill="currentColor" letter-spacing="-0.05em">SLB</text></svg>
+        <!-- MCO Layer: Telemetry feeds and Fault Simulator -->
+        <div class="hud-mco-layer">
+          <!-- Fault Alert Banner overlay -->
+          <div class="mco-fault-alert mono" id="mco-fault-alert">
+            <span class="alert-flash">ATTENTION CRITIQUE</span>
+            <span class="alert-details">ANOMALIE DE VIBRATION DÉTECTÉE · SURCHAUFFE DU PALIER</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="shell metric-strip">
-        <article class="metric-card" data-reveal>
-          <strong>BE</strong>
-          <span>conception, calcul et mise en plan</span>
+      <!-- ACT 1 — Intro copy, visible only at the very first frames -->
+      <div class="hero-copy" data-phase="intro">
+        <span class="eyebrow">CONCEPTION CAO — DÉFILÉ TECHNIQUE</span>
+        <h1>La modélisation<br/><em>géométrique et cinématique</em> de haute précision.</h1>
+        <p class="lede">Faites défiler pour voir notre workflow de modélisation CAO pas-à-pas — de l'esquisse volumique à la validation cinématique de l'assemblage.</p>
+        <div class="scroll-hint"><span>DÉFILER</span><div class="scroll-line"></div></div>
+      </div>
+
+      <!-- ACT 2 — Narrative lines that type in as the chassis disassembles -->
+      <aside class="hero-story" data-phase="story" aria-hidden="true">
+        <span class="eyebrow">— Dossier technique</span>
+        <ul class="story-lines">
+          <li data-show="0.12"><span class="sl-num">01</span><span class="sl-text">Esquisse de base et contraintes d'implantation.</span></li>
+          <li data-show="0.18"><span class="sl-num">02</span><span class="sl-text">Modélisation des surfaces gauches et cinématiques.</span></li>
+          <li data-show="0.24"><span class="sl-num">03</span><span class="sl-text">Tolérancement ISO-GPS pour la fabricabilité.</span></li>
+          <li data-show="0.30"><span class="sl-num">04</span><span class="sl-text">Validation complète de l'assemblage 3D.</span></li>
+        </ul>
+      </aside>
+
+      <!-- ACT 4 — Final CTA when the chassis is reassembled -->
+      <div class="hero-cta-panel" data-phase="cta" aria-hidden="true">
+        <span class="eyebrow">— Lancer votre étude</span>
+        <h2>Prêt à concrétiser votre<br/><em>prochain modèle CAO</em>&nbsp;?</h2>
+        <p>De l'idée brute au dossier de fabrication certifié — parlons de vos géométries complexes.</p>
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn primary">Demander un devis →</a>
+          <a href="mailto:info@mecmaroc.com" class="btn ghost">Parler à un ingénieur</a>
+        </div>
+      </div>
+
+      <!-- Floating glass cards, appear mid-scroll -->
+      <div class="float-cards" aria-hidden="false">
+        <article class="fcard glass glass-solid" data-card="cad">
+          <header>
+            <span class="fcard-idx">01</span>
+            <span class="fcard-tag">PARAMÉTRIQUE</span>
+          </header>
+          <h3>Modélisation CAO</h3>
+          <p>Modélisation paramétrique sous arbres de création stricts — assurant des modifications ultérieures instantanées sans crash géométrique.</p>
+          <footer class="mono">Catia · SolidWorks · Creo</footer>
         </article>
-        <article class="metric-card" data-reveal>
-          <strong>PREV</strong>
-          <span>maintenance préventive structurée</span>
+
+        <article class="fcard glass glass-solid" data-card="fea">
+          <header>
+            <span class="fcard-idx">02</span>
+            <span class="fcard-tag">PRÉCISION</span>
+          </header>
+          <h3>Tolérancement ISO</h3>
+          <p>Intégration systématique du tolérancement géométrique ISO-GPS (chaînes de cotes 3D) pour garantir une fabricabilité sans retouche.</p>
+          <footer class="mono">Normes ISO 1101 · ISO 8015</footer>
         </article>
-        <article class="metric-card" data-reveal>
-          <strong>PRED</strong>
-          <span>maintenance prédictive et surveillance d'état</span>
+
+        <article class="fcard glass glass-solid" data-card="pm">
+          <header>
+            <span class="fcard-idx">03</span>
+            <span class="fcard-tag">ASSEMBLAGE</span>
+          </header>
+          <h3>Gestion des Jeux</h3>
+          <p>Vérification dynamique des jeux, détection des interférences en mouvement et simulation cinématique des sous-ensembles complets.</p>
+          <footer class="mono">STEP · IGES · Nomenclatures</footer>
         </article>
-        <article class="metric-card" data-reveal>
-          <strong>CORR</strong>
-          <span>maintenance corrective et curative</span>
-        </article>
-      </section>
+      </div>
 
-      <section class="shell">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">À propos</p>
-            <h2>Une offre claire pour les besoins mécanique et maintenance</h2>
-          </div>
-          <p>
-            ExoMaintenance reunit l'expertise bureau d'étude et la logique de
-            maintenance industrielle afin de limiter les arrêts, fiabiliser les
-            équipements et accélérer les prises de decision.
-          </p>
-        </div>
+      <!-- Bottom phase indicator -->
+      <div class="phase-meter mono">
+        <span class="pm-label">PHASE</span>
+        <span class="pm-value" id="phaseValue">SOLIDE · 000</span>
+        <span class="pm-bar"><span class="pm-fill" id="phaseFill"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="card-grid card-grid-4">
-          <article class="info-card" data-reveal>
-            <h3>Pilotage fluide</h3>
-            <p>
-              Un interlocuteur technique capable de dialoguer avec la
-              production, la maintenance et le bureau d'étude.
-            </p>
-          </article>
-          <article class="info-card" data-reveal>
-            <h3>Vision complète</h3>
-            <p>
-              Nous traitons à la fois la conception mécanique et le maintien en
-              condition opérationnelle des installations.
-            </p>
-          </article>
-          <article class="info-card" data-reveal>
-            <h3>Réactivité terrain</h3>
-            <p>
-              Priorisation des pannes, plans d'actions et interventions
-              correctives adaptés aux urgences d'exploitation.
-            </p>
-          </article>
-          <article class="info-card" data-reveal>
-            <h3>Fiabilisation durable</h3>
-            <p>
-              Les corrections ne s'arrêtent pas au dépannage : nous recherchons
-              les causes racines et les améliorations durables.
-            </p>
-          </article>
-        </div>
-      </section>
+<!-- ============ CLIENTS / TRUST BAR ============ -->
+<section id="clients" class="clients">
+  <div class="clients-head">
+    <span class="eyebrow">— Signes de confiance</span>
+    <h2>Des leaders de l'industrie s'appuient sur MecMaroc.</h2>
+    <p class="sub">Nous accompagnons au quotidien des industriels exigeants dans la conception, la fiabilisation et le maintien en conditions opérationnelles de leurs équipements essentiels.</p>
+  </div>
 
-      <section class="shell split-section">
-        <div class="stacked-panel" data-reveal>
-          <p class="eyebrow">Méthodologie</p>
-          <h2>Une approche commune pour l'etude, l'intervention et la fiabilisation</h2>
-          <p>
-            Nous travaillons aussi bien sur les sujets d'ingénierie mécanique
-            que sur les enjeux de maintenance industrielle, avec une logique de
-            résultat mesurable.
-          </p>
+  <div class="marquee" aria-label="Clients et partenaires">
+    <div class="marquee-track">
+      <!-- Row A -->
+      <ul class="marquee-row">
+        <li class="logo-nemera">nemera</li>
+        <li class="logo-soviresco">SOVIRESO</li>
+        <li class="logo-coke">Coca&#8209;Cola</li>
+        <li class="logo-te">TE Connectivity</li>
+        <li class="logo-sews">SEWS</li>
+        <li class="logo-yazaki">YAZAKI</li>
+        <li class="logo-slb">SLB</li>
+        <li class="logo-renault">RENAULT</li>
+        <li class="logo-texelis">TEXELIS</li>
+        <li class="logo-safran">SAFRAN</li>
+      </ul>
+      <!-- Row A duplicate for seamless loop -->
+      <ul class="marquee-row" aria-hidden="true">
+        <li class="logo-nemera">nemera</li>
+        <li class="logo-soviresco">SOVIRESO</li>
+        <li class="logo-coke">Coca&#8209;Cola</li>
+        <li class="logo-te">TE Connectivity</li>
+        <li class="logo-sews">SEWS</li>
+        <li class="logo-yazaki">YAZAKI</li>
+        <li class="logo-slb">SLB</li>
+        <li class="logo-renault">RENAULT</li>
+        <li class="logo-texelis">TEXELIS</li>
+        <li class="logo-safran">SAFRAN</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-          <div class="sector-list">
-            <article>
-              <strong>Diagnostic</strong>
-              <span>État des lieux, criticité, priorités et comprehension des causes</span>
-            </article>
-            <article>
-              <strong>Planification</strong>
-              <span>Préparation des actions préventives, prédictives ou correctives</span>
-            </article>
-            <article>
-              <strong>Exécution</strong>
-              <span>Interventions, modifications et remises en etat ciblées</span>
-            </article>
-            <article>
-              <strong>Amélioration</strong>
-              <span>Retour d'experience, fiabilisation et réduction durable des arrêts</span>
-            </article>
-          </div>
-        </div>
+<!-- ============ CAPABILITIES ============ -->
+<section id="capabilities" class="section">
+  <div class="section-head">
+    <span class="eyebrow">— Expertises</span>
+    <h2>La précision, de la première esquisse au dernier kilomètre.</h2>
+    <p class="sub">Un bureau d'études verticalement intégré, présent sur l'ensemble du cycle de vie d'un système mécanique.</p>
+  </div>
 
-        <div class="process-list">
-          <article class="process-step" data-reveal>
-            <span class="step-number">1</span>
-            <div>
-              <h3>Cadrage</h3>
-              <p>
-                Analyse du besoin, des équipements critiques et des objectifs de
-                performance ou de disponibilité.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">2</span>
-            <div>
-              <h3>Production</h3>
-              <p>
-                Études, plans, gammes ou interventions avec pilotage technique
-                et coordination des priorités.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">3</span>
-            <div>
-              <h3>Contrôle</h3>
-              <p>
-                Verification des livrables, controle du résultat et validation
-                du bon fonctionnement apres intervention.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">4</span>
-            <div>
-              <h3>Livraison</h3>
-              <p>
-                Restitution, recommandations et plan d'amélioration continue
-                pour inscrire l'action dans la durée.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
+  <div class="cap-grid">
+    <article class="cap glass">
+      <div class="cap-num mono">/ 01</div>
+      <h3>Conception structurelle</h3>
+      <p>Chemins de charge optimisés en topologie — masse, raideur et fabricabilité traités dans une seule boucle d'itération.</p>
+    </article>
+    <article class="cap glass">
+      <div class="cap-num mono">/ 02</div>
+      <h3>Simulation multi‑physique</h3>
+      <p>Thermique, modale, fluide‑structure et dynamique explicite — résolues, corrélées et validées par essais physiques.</p>
+    </article>
+    <article class="cap glass">
+      <div class="cap-num mono">/ 03</div>
+      <h3>Fabrication additive &amp; composites</h3>
+      <p>DfAM pour LPBF métal, conception des trajectoires CFRP et assemblages hybrides pour les séries courtes à haute performance.</p>
+    </article>
+    <article class="cap glass">
+      <div class="cap-num mono">/ 04</div>
+      <h3>Jumeau numérique</h3>
+      <p>Télémétrie temps réel ingérée dans des modèles réduits — prédiction de durée de vie résiduelle livrée aux équipes de maintenance.</p>
+    </article>
+  </div>
+</section>
 
-      <section class="shell cta-band" data-reveal>
-        <div>
-          <p class="eyebrow">Échangeons</p>
-          <h2>Prêts à fiabiliser vos équipements industriels ?</h2>
-          <p>
-            Parlez-nous de vos objectifs de production, de vos défaillances récurrentes 
-            ou de vos projets de conception pour une étude technique immédiate.
-          </p>
-        </div>
-        <a class="btn-trillion" href="contact.html">Demander un devis</a>
-      </section>
-    </main>
+<!-- ============ PROCESS ============ -->
+<section id="process" class="section alt">
+  <div class="section-head">
+    <span class="eyebrow">— Méthode</span>
+    <h2>Quatre mouvements. Une boucle continue.</h2>
+  </div>
+  <ol class="process">
+    <li><span class="p-step mono">001</span><h4>Acquérir</h4><p>Scanner, mesurer, ingérer. La réalité devient géométrie.</p></li>
+    <li><span class="p-step mono">002</span><h4>Modéliser</h4><p>Arbres de fonctions, assemblages, tolérances, nomenclature.</p></li>
+    <li><span class="p-step mono">003</span><h4>Simuler</h4><p>Contraintes, vibrations, fatigue, écoulement — validés.</p></li>
+    <li><span class="p-step mono">004</span><h4>Surveiller</h4><p>Jumeau déployé. Opérations informées. La boucle se ferme.</p></li>
+  </ol>
+</section>
 
-    <div data-site-footer></div>
-  </body>
+<!-- ============ METRICS ============ -->
+<section id="metrics" class="section">
+  <div class="section-head">
+    <span class="eyebrow">— Chiffres clés</span>
+    <h2>Mesurés là où ça compte.</h2>
+  </div>
+  <div class="metrics">
+    <div class="m"><div class="m-val">128<span>M</span></div><div class="m-key mono">Éléments FE résolus / mois</div></div>
+    <div class="m"><div class="m-val">0,02<span>mm</span></div><div class="m-key mono">Tolérance géométrique</div></div>
+    <div class="m"><div class="m-val">99,2<span>%</span></div><div class="m-key mono">Disponibilité flotte atteinte</div></div>
+    <div class="m"><div class="m-val">17<span>ans</span></div><div class="m-key mono">Ancienneté moyenne des ingénieurs</div></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="contact" class="section cta-section">
+  <div class="cta glass">
+    <span class="eyebrow">— Lancer un programme</span>
+    <h2>Confiez‑nous le problème le plus difficile de votre feuille de route.</h2>
+    <p>Nous collaborons avec des OEM, des équipementiers tier‑1 et des laboratoires de recherche sur des programmes d'ingénierie pluriannuels. Les briefings sont confidentiels par défaut.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/contact.html">Demander un devis</a>
+      <a class="btn ghost" href="#capabilities">Voir les expertises</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (injected from /partials/footer.html) ============ -->
+<div id="site-footer"></div>
+
+<script src="/main.js?v=8" defer></script>
+</body>
 </html>

@@ -1,195 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | ExoMaintenance</title>
-    <meta
-      name="description"
-      content="Contactez ExoMaintenance pour vos besoins en étude mécanique et maintenance industrielle préventive, prédictive, corrective ou curative."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body class="page-contact">
-    <div data-site-header></div>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — MecMaroc</title>
+<meta name="description" content="Parlons de votre programme. Ingénierie Mécanique & Maintenance." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css?v=9" />
+<script src="/includes.js?v=2" defer></script>
+</head>
+<body data-route="contact">
 
-    <main class="page-main">
-      <section class="shell page-hero" data-reveal>
-        <p class="eyebrow">Contact</p>
-        <h1>Mettez l'expertise ExoMaintenance au service de votre production</h1>
-        <p>
-          Contactez-nous pour toute demande d'étude mécanique, d'intervention sur site ou 
-          de diagnostic de fiabilisation de vos équipements industriels.
-        </p>
-      </section>
+<div id="site-header"></div>
 
-      <section class="shell contact-layout">
-        <article class="form-card" data-reveal>
-          <div class="section-head compact-head">
-            <div>
-              <p class="eyebrow">Devis</p>
-              <h2>Décrivez votre besoin</h2>
-            </div>
-            <p>Remplissez le formulaire, nous vous répondrons rapidement.</p>
-          </div>
+<section class="page-hero">
+  <nav class="crumbs" aria-label="Fil d'Ariane">
+    <a href="/index.html">Accueil</a><span class="sep">/</span>
+    <span>Contact</span>
+  </nav>
+  <h1>Discutons de votre <em>prochain défi</em>.</h1>
+  <p class="lede">Briefings confidentiels par défaut. Nous revenons vers vous sous 48 h ouvrées.</p>
+</section>
 
-          <form data-mail-form action="javascript:void(0);">
-            <div class="form-row">
-              <label>
-                Nom complet
-                <input type="text" name="name" placeholder="Votre nom" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="vous@entreprise.fr" required />
-              </label>
-            </div>
+<section class="contact-grid">
+  <div class="contact-info">
+    <h2 style="font-size:24px;color:#fff;margin-bottom:10px;font-weight:400">Bureau d'études</h2>
+    <span class="mono">Téléphone</span>
+    <strong><a href="tel:+212694974915" style="color:inherit;text-decoration:none">+212 6 94 97 49 15</a></strong>
+    <span class="mono" style="margin-top:14px;display:block">E‑mails</span>
+    <strong><a href="mailto:info@mecmaroc.com" style="color:inherit;text-decoration:none">info@mecmaroc.com</a></strong>
+    <strong><a href="mailto:projects@mecmaroc.com" style="color:inherit;text-decoration:none;margin-top:4px;display:block">projects@mecmaroc.com</a></strong>
+    <span class="mono" style="margin-top:14px;display:block">Horaires</span>
+    <strong>Lun – Ven · 08h30 – 18h00</strong>
+  </div>
+  
+  <form class="contact-form" id="contactForm" novalidate>
+    <div class="row">
+      <div><label for="f-name">Nom</label><input id="f-name" name="name" type="text" required></div>
+      <div><label for="f-company">Société</label><input id="f-company" name="company" type="text"></div>
+    </div>
+    <div class="row">
+      <div><label for="f-email">E‑mail</label><input id="f-email" name="email" type="email" required></div>
+      <div><label for="f-phone">Téléphone</label><input id="f-phone" name="phone" type="tel"></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <label for="f-sub">Sujet</label>
+      <select id="f-sub" name="subject">
+        <option>Demande de devis</option>
+        <option>Conception mécanique</option>
+        <option>Calcul &amp; FEA</option>
+        <option>Maintenance préventive</option>
+        <option>Maintenance prédictive</option>
+        <option>Maintenance corrective</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <div style="margin-bottom:14px">
+      <label for="f-msg">Votre message</label>
+      <textarea id="f-msg" name="message" required placeholder="Décrivez brièvement le contexte, les équipements concernés et l'échéance souhaitée."></textarea>
+    </div>
 
-            <div class="form-row">
-              <label>
-                Entreprise
-                <input type="text" name="company" placeholder="Nom de l'entreprise" />
-              </label>
-              <label>
-                Téléphone
-                <input type="tel" name="phone" placeholder="+33 ..." />
-              </label>
-            </div>
+    <!-- Honeypot: hidden from real users, bots tend to fill it. -->
+    <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">
+      <label>Site web <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
 
-            <div class="form-row">
-              <label>
-                Secteur
-                <select name="industry">
-                  <option value="">Choisir un secteur</option>
-                  <option>Automobile</option>
-                  <option>Aéronautique</option>
-                  <option>Ferroviaire</option>
-                  <option>Industrie / machines</option>
-                  <option>Autre</option>
-                </select>
-              </label>
-              <label>
-                Type de projet
-                <select name="project">
-                  <option value="">Choisir un type de projet</option>
-                  <option>CAO / plans</option>
-                  <option>Calcul / simulation</option>
-                  <option>Développement produit</option>
-                  <option>Industrialisation</option>
-                  <option>Renfort BE</option>
-                </select>
-              </label>
-            </div>
+    <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+    <button type="submit" id="formSubmit">Envoyer la demande →</button>
+  </form>
 
-            <label>
-              Description du besoin
-              <textarea
-                name="message"
-                rows="7"
-                placeholder="Contexte, urgence, livrables attendus, outils, date cible..."
-                required
-              ></textarea>
-            </label>
+<script>
+/* =========================================================
+   Contact form → Direct Resend API Integration.
+   ========================================================= */
+(() => {
+  const form   = document.getElementById('contactForm');
+  const btn    = document.getElementById('formSubmit');
+  const status = document.getElementById('formStatus');
+  if (!form) return;
 
-            <button class="btn-trillion" type="submit">Envoyer le message</button>
-            <p class="form-status" data-form-status></p>
-          </form>
-        </article>
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        <div class="contact-stack">
-          <article class="contact-card" data-reveal>
-            <p class="eyebrow">Coordonnées</p>
-            <h2>Coordonnees ExoMaintenance</h2>
-            <div class="contact-item">
-              <strong>Email général</strong>
-              <a href="mailto:contact@exomaintenance.fr">contact@exomaintenance.fr</a>
-            </div>
-            <div class="contact-item">
-              <strong>Demandes projets</strong>
-              <a href="mailto:projets@exomaintenance.fr">projets@exomaintenance.fr</a>
-            </div>
-            <div class="contact-item">
-              <strong>Téléphone</strong>
-              <a href="tel:+33758551524">+33 7 58 55 15 24</a>
-            </div>
-            <div class="contact-item">
-              <strong>Positionnement</strong>
-              <span>Bureau d'étude mécanique et maintenance industrielle</span>
-            </div>
-          </article>
+    const data = Object.fromEntries(new FormData(form).entries());
 
-          <article class="contact-card" data-reveal>
-            <p class="eyebrow">Disponibilité</p>
-            <h2>À vos côtés quand la disponibilité compte le plus</h2>
-            <ul class="bullet-list">
-              <li>Lundi - vendredi : 8h00 - 18h00</li>
-              <li>Samedi : 9h00 - 14h00</li>
-              <li>Support renforcé possible pour les sujets critiques</li>
-              <li>Interventions et études en lien avec vos priorités de site</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+    // Bot honeypot guard
+    if (data.website) {
+      console.log('Bot detected');
+      return;
+    }
 
-      <section class="shell">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">FAQ</p>
-            <h2>Les questions les plus utiles avant de nous contacter</h2>
-          </div>
-        </div>
+    if (!data.name || !data.email || !data.message) {
+      setStatus('Merci de renseigner le nom, l\u2019e-mail et le message.', 'error');
+      return;
+    }
 
-        <div class="faq-grid">
-          <article class="faq-item" data-reveal>
-            <h3>Comment démarre une mission ?</h3>
-            <p>
-              Par un cadrage simple : besoin, équipement, niveau d'urgence,
-              livrables attendus et priorités de maintenance ou d'étude.
-            </p>
-          </article>
-          <article class="faq-item" data-reveal>
-            <h3>Quels types de maintenance couvrez-vous ?</h3>
-            <p>
-              ExoMaintenance couvre la préventive, la prédictive, la corrective,
-              la curative et l'améliorative selon votre besoin.
-            </p>
-          </article>
-          <article class="faq-item" data-reveal>
-            <h3>Pouvez-vous intervenir aussi sur de la conception ?</h3>
-            <p>
-              Oui. Le positionnement combine bureau d'étude mécanique,
-              modélisation, mise en plan, fiabilisation et support technique.
-            </p>
-          </article>
-          <article class="faq-item" data-reveal>
-            <h3>Travaillez-vous sur tout type de machines ?</h3>
-            <p>
-              Notre base méthodologique s'applique à la plupart des équipements et infrastructures, sous réserve d'une faisabilite analysée des le premier échange.
-            </p>
-          </article>
-        </div>
-      </section>
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Envoi\u2026';
+    setStatus('', '');
 
-      <section class="shell cta-band" data-reveal>
-        <div>
-          <p class="eyebrow">Votre projet technique</p>
-          <h2>Rencontrez-nous pour un diagnostic préliminaire de vos équipements</h2>
-          <p>
-            Que ce soit pour une problématique de conception CAO ou un dépannage complexe, 
-            nous vous proposerons des notre premier échange une démarche technique pertinente.
-          </p>
-        </div>
-        <a class="btn-trillion" href="mailto:projets@exomaintenance.fr">Envoyer vos plans ou photos</a>
-      </section>
-    </main>
+    try {
+      const res = await fetch('https://corsproxy.io/?url=' + encodeURIComponent('https://api.resend.com/emails'), {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer re_crcqcZca_84mn9e8Fy9bFteFcnujRkZrr',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'MecMaroc Contact <info@mecmaroc.com>',
+          to: 'info@mecmaroc.com',
+          subject: `Contact MecMaroc - ${data.subject || 'Nouveau Message'}`,
+          html: `
+            <h2>Nouveau message de contact</h2>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <p><strong>Nom :</strong> ${data.name}</p>
+            <p><strong>Société :</strong> ${data.company || 'Non renseigné'}</p>
+            <p><strong>E-mail :</strong> ${data.email}</p>
+            <p><strong>Téléphone :</strong> ${data.phone || 'Non renseigné'}</p>
+            <p><strong>Sujet :</strong> ${data.subject}</p>
+            <p><strong>Message :</strong></p>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; white-space: pre-wrap;">${data.message}</div>
+          `
+        })
+      });
 
-    <div data-site-footer></div>
-  </body>
+      const payload = await res.json().catch(() => ({}));
+
+      if (res.ok && payload.id) {
+        form.reset();
+        btn.textContent = 'Merci \u2014 re\u00e7u \u2713';
+        setStatus('Votre message est parti. Nous revenons vers vous sous 48\u00a0h.', 'success');
+      } else {
+        btn.textContent = originalLabel;
+        btn.disabled = false;
+        console.error('[contact] Resend error payload:', payload);
+        const detail = payload.message ? ' \u2014 ' + payload.message : '';
+        setStatus('Erreur lors de l\'envoi.' + detail, 'error');
+      }
+    } catch (err) {
+      console.error(err);
+      btn.textContent = originalLabel;
+      btn.disabled = false;
+      setStatus('Probl\u00e8me de communication. V\u00e9rifiez votre connexion.', 'error');
+    }
+  });
+
+  function setStatus(text, kind) {
+    status.textContent = text;
+    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+  }
+})();
+</script>
+</section>
+
+<div id="site-footer"></div>
+<script src="/main.js?v=2" defer></script>
+</body>
 </html>

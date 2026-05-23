@@ -1,218 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services | ExoMaintenance</title>
-    <meta
-      name="description"
-      content="Services ExoMaintenance : bureau d'étude mécanique, maintenance préventive, prédictive, corrective, curative, améliorative et fiabilisation industrielle."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body class="page-services">
-    <div data-site-header></div>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services — MecMaroc</title>
+<meta name="description" content="Ingénierie et maintenance industrielle : conception mécanique, calcul et validation, maintenance préventive, prédictive et corrective." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css?v=9" />
+<script src="/includes.js?v=2" defer></script>
+</head>
+<body data-route="services">
 
-    <main class="page-main">
-      <section class="shell page-hero" data-reveal>
-        <p class="eyebrow">Services</p>
-        <h1>Une offre claire entre bureau d'étude mécanique et maintenance industrielle</h1>
-        <p>
-          ExoMaintenance couvre la conception mécanique, la validation et la
-          maintenance industrielle avec une lecture simple des besoins terrain.
-        </p>
-      </section>
+<div id="site-header"></div>
 
-      <section class="shell service-grid">
-        <article class="service-card" data-reveal>
-          <h2>Conception CAO & modélisation 3D</h2>
-          <p>
-            Création ou reprise de pièces, sous-ensembles et systèmes
-            mécaniques pour études, consultation ou fabrication.
-          </p>
-          <ul class="bullet-list">
-            <li>SolidWorks, CATIA et AutoCAD</li>
-            <li>Plans de définition et d'assemblage</li>
-            <li>Rétro-ingénierie et optimisation géométrique</li>
-            <li>Visualisation et revues de conception</li>
-          </ul>
-          <a href="service-conception.html" class="btn-trillion">Découvrir la CAO</a>
-        </article>
+<section class="page-hero">
+  <nav class="crumbs" aria-label="Fil d'Ariane">
+    <a href="/index.html">Accueil</a><span class="sep">/</span>
+    <span>Services</span>
+  </nav>
+  <h1>Ingénierie et maintenance à <em>chaque étape</em>.</h1>
+  <p class="lede">Une approche bureau d'études + terrain pour fiabiliser vos équipements, accélérer les reprises et structurer la maintenance dans la durée.</p>
+</section>
 
-        <article class="service-card" data-reveal>
-          <h2>Calcul & validation</h2>
-          <p>
-            Appui à la decision technique pour valider la tenue mécanique,
-            orienter un redesign ou fiabiliser un ensemble.
-          </p>
-          <ul class="bullet-list">
-            <li>Analyses structurelles et vérification</li>
-            <li>Optimisation performance et robustesse</li>
-            <li>Aide à la decision sur les choix de conception</li>
-            <li>Réduction des risques techniques</li>
-          </ul>
-          <a href="service-calcul.html" class="btn-trillion">En savoir plus sur le Calcul</a>
-        </article>
+<section class="tile-grid" aria-label="Nos services">
+  <a class="tile" href="/services/conception-mecanique.html">
+    <span class="tile-num">/ 01</span>
+    <h3>Conception mécanique</h3>
+    <p>Avant‑projets, cinématiques, implantation et dossiers de fabrication. De la feuille blanche au dossier de plans signé.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+  <a class="tile" href="/services/calcul-validation.html">
+    <span class="tile-num">/ 02</span>
+    <h3>Calcul &amp; validation</h3>
+    <p>Dimensionnement, calculs de structure et simulation FEA pour valider les hypothèses techniques avant prototype.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+  <a class="tile" href="/services/industrialisation-fiabilisation.html">
+    <span class="tile-num">/ 03</span>
+    <h3>Industrialisation &amp; fiabilisation</h3>
+    <p>Plans d'actions ciblés sur la disponibilité, la sécurité et la robustesse des moyens de production.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+  <a class="tile" href="/services/maintenance-preventive.html">
+    <span class="tile-num">/ 04</span>
+    <h3>Maintenance préventive</h3>
+    <p>Gammes, périodicités, AMDEC et standardisation des interventions préventives dans votre GMAO.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+  <a class="tile" href="/services/maintenance-predictive.html">
+    <span class="tile-num">/ 05</span>
+    <h3>Maintenance prédictive</h3>
+    <p>Suivi d'état, signaux faibles et priorisation des interventions avant défaillance.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+  <a class="tile" href="/services/maintenance-corrective.html">
+    <span class="tile-num">/ 06</span>
+    <h3>Maintenance corrective</h3>
+    <p>Analyse de défaillance, remise en route rapide et réduction durable des récurrences.</p>
+    <span class="tile-arrow">DÉCOUVRIR →</span>
+  </a>
+</section>
 
-        <article class="service-card" data-reveal>
-          <h2>Industrialisation & fiabilisation</h2>
-          <p>
-            Traduction des choix de conception en solutions réalisables et plus
-            faciles a maintenir dans la durée.
-          </p>
-          <ul class="bullet-list">
-            <li>Préparation fabrication et support atelier</li>
-            <li>DFM, acces maintenance et maintenabilite</li>
-            <li>Réduction des temps d'arrêt</li>
-            <li>Actions de fiabilisation mécaniques</li>
-          </ul>
-          <a href="service-fiabilisation.html" class="btn-trillion">Méthodes de Fiabilisation</a>
-        </article>
-
-        <article class="service-card" data-reveal>
-          <h2>Maintenance préventive</h2>
-          <p>
-            Organisation des tâches planifiées pour entretenir les équipements
-            avant qu'ils ne se dégradent.
-          </p>
-          <ul class="bullet-list">
-            <li>Plans et gammes de maintenance</li>
-            <li>Inspections, controle visuel et lubrication</li>
-            <li>Calendriers d'entretien</li>
-            <li>Réduction des défaillances récurrentes</li>
-          </ul>
-          <a href="service-preventive.html" class="btn-trillion">Atouts du Préventif</a>
-        </article>
-
-        <article class="service-card" data-reveal>
-          <h2>Maintenance prédictive</h2>
-          <p>
-            Surveillance d'état et interpretation d'indicateurs pour intervenir
-            avant la panne.
-          </p>
-          <ul class="bullet-list">
-            <li>Analyse de symptomes et derive machine</li>
-            <li>Suivi des tendances et diagnostics</li>
-            <li>Anticipation des défaillances</li>
-            <li>Planification des arrêts utiles</li>
-          </ul>
-          <a href="service-predictive.html" class="btn-trillion">Anticiper par le Prédictif</a>
-        </article>
-
-        <article class="service-card" data-reveal>
-          <h2>Maintenance corrective, curative & améliorative</h2>
-          <p>
-            Intervention apres dysfonctionnement, remise en état et suppression
-            durable des causes de panne.
-          </p>
-          <ul class="bullet-list">
-            <li>Dépannage et remise en service</li>
-            <li>Réparation et maintenance curative</li>
-            <li>Analyse des causes racines</li>
-            <li>Modification améliorative et fiabilisation</li>
-          </ul>
-          <a href="service-corrective.html" class="btn-trillion">Modes de Dépannage</a>
-        </article>
-      </section>
-
-      <section class="shell">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">Méthode</p>
-            <h2>Une methode simple pour les études et la maintenance</h2>
-          </div>
-          <p>
-            Les actions sont pilotées avec une logique claire : comprendre,
-            preparer, intervenir et améliorer.
-          </p>
-        </div>
-
-        <div class="process-list">
-          <article class="process-step" data-reveal>
-            <span class="step-number">1</span>
-            <div>
-              <h3>Diagnostic</h3>
-              <p>
-                Analyse du besoin, de l'équipement, des historiques et du niveau
-                de criticité.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">2</span>
-            <div>
-              <h3>Préparation</h3>
-              <p>
-                Planification des etudes, des tâches de maintenance et des
-                interventions nécessaires.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">3</span>
-            <div>
-              <h3>Exécution</h3>
-              <p>
-                Production des livrables, interventions terrain, dépannage ou
-                corrections ciblées.
-              </p>
-            </div>
-          </article>
-          <article class="process-step" data-reveal>
-            <span class="step-number">4</span>
-            <div>
-              <h3>Suivi & amélioration</h3>
-              <p>
-                Verification, retour d'experience et actions de fiabilisation
-                pour diminuer durablement les arrêts.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="shell">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">Outils</p>
-            <h2>Outils, methodes et pratiques mobilisables selon vos besoins</h2>
-          </div>
-        </div>
-
-        <div class="tool-cloud" data-reveal>
-          <span class="tool-pill">SolidWorks</span>
-          <span class="tool-pill">AutoCAD</span>
-          <span class="tool-pill">Calcul mécanique</span>
-          <span class="tool-pill">Documentation technique</span>
-          <span class="tool-pill">Gammes de maintenance</span>
-          <span class="tool-pill">Analyse de panne</span>
-          <span class="tool-pill">Suivi d'état</span>
-          <span class="tool-pill">Fiabilisation</span>
-          <span class="tool-pill">Amélioration continue</span>
-          <span class="tool-pill">GMAO / suivi interventions</span>
-        </div>
-      </section>
-
-      <section class="shell cta-band" data-reveal>
-        <div>
-          <p class="eyebrow">Discutons de vos besoins</p>
-          <h2>Vous avez un besoin d'étude mécanique ou de maintenance industrielle ?</h2>
-          <p>
-            Nos equipes techniques sont mobilisables rapidement pour évaluer vos
-            installations et vous proposer une démarche d'intervention sur mesure.
-          </p>
-        </div>
-        <a class="btn-trillion" href="contact.html">Demander un diagnostic</a>
-      </section>
-    </main>
-
-    <div data-site-footer></div>
-  </body>
+<div id="site-footer"></div>
+<script src="/main.js?v=2" defer></script>
+</body>
 </html>
