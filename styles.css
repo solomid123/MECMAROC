@@ -1106,22 +1106,29 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
 }
 :root.light-mode .nav-drawer-nav > a {
   border-bottom: 1px solid rgba(15, 23, 42, 0.05) !important;
+  color: #000000 !important;
+}
+:root.light-mode .nav-drawer-group summary {
+  color: #000000 !important;
+}
+:root.light-mode .nav-drawer-links a {
+  color: rgba(15, 23, 42, 0.72) !important;
 }
 :root.light-mode .nav-drawer-nav > a:hover,
 :root.light-mode .nav-drawer-nav > a.is-active,
 :root.light-mode .nav-drawer-group summary:hover,
 :root.light-mode .nav-drawer-links a:hover {
   background: rgba(0, 0, 0, 0.04) !important;
-  color: var(--text) !important;
+  color: #000000 !important;
 }
 :root.light-mode .nav-drawer-links a strong {
-  color: var(--text) !important;
+  color: #000000 !important;
 }
 :root.light-mode .nav-burger {
   border: 1px solid rgba(15, 23, 42, 0.08) !important;
 }
 :root.light-mode .nav-burger span {
-  background: var(--text) !important;
+  background: #000000 !important;
 }
 :root.light-mode .nav-burger:hover {
   background: rgba(0,0,0,0.05) !important;
@@ -1864,9 +1871,9 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
    ========================================================== */
 @media (max-width: 780px) {
 
-  /* Service Switcher Dock: compact pill, tighter spacing */
+  /* Service Switcher Dock: compact pill, tighter spacing, pushed down for top passing */
   .service-switcher-dock {
-    top: 72px;
+    top: 110px !important;
     padding: 4px;
     gap: 2px;
     border-radius: 60px;
@@ -1887,32 +1894,33 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
     display: none; /* hide subtitle on mobile to save space */
   }
 
-  /* Floating annotation cards: already stacked via flex, just shrink them */
+  /* Floating annotation cards: already stacked via flex, made significantly more compact */
   .fcard {
-    padding: 12px 14px 10px !important;
-    width: 78% !important;
+    padding: 8px 12px 6px !important;
+    width: 70% !important;
   }
   .fcard h3 {
-    font-size: 14px !important;
+    font-size: 12.5px !important;
+    margin-bottom: 4px !important;
   }
   .fcard p {
-    font-size: 11.5px !important;
-    line-height: 1.5;
+    font-size: 10px !important;
+    line-height: 1.4 !important;
   }
   .fcard header {
-    margin-bottom: 8px;
+    margin-bottom: 4px !important;
   }
   .fcard-idx {
-    font-size: 9px;
+    font-size: 8.5px !important;
   }
   .fcard-tag {
-    font-size: 8px;
-    padding: 2px 6px;
+    font-size: 7.5px !important;
+    padding: 2px 5px !important;
   }
   .fcard footer {
-    margin-top: 8px;
-    padding-top: 8px;
-    font-size: 10px;
+    margin-top: 6px !important;
+    padding-top: 6px !important;
+    font-size: 9px !important;
   }
 
   /* FEA Scale Bar: shorter, tucked to corner */
@@ -2036,7 +2044,7 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
 /* Extra small phones (≤ 420px) — even tighter */
 @media (max-width: 420px) {
   .service-switcher-dock {
-    top: 64px;
+    top: 100px !important;
     padding: 3px;
   }
   .switcher-btn {
@@ -2050,14 +2058,14 @@ h1, h2, h3, h4, p, a, strong, span, em, time, .mono {
     font-size: 8px;
   }
   .fcard {
-    padding: 10px 12px 8px !important;
-    width: 86% !important;
+    padding: 6px 10px 4px !important;
+    width: 80% !important;
   }
   .fcard h3 {
-    font-size: 13px !important;
+    font-size: 11px !important;
   }
   .fcard p {
-    font-size: 11px !important;
+    font-size: 9.5px !important;
   }
   .hotspot-callout {
     width: 120px;
